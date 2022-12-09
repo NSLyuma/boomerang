@@ -41,7 +41,7 @@ class Game {
       });
     }
     if (
-      this.enemy.position === this.boomerang.position &&
+      this.enemy.position <= this.boomerang.position &&
       this.enemy.position - this.hero.position !== 1
     ) {
       this.enemy.die();
