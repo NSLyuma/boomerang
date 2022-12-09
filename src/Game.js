@@ -6,12 +6,13 @@ const Hero = require('./game-models/Hero');
 const Enemy = require('./game-models/Enemy');
 const Boomerang = require('./game-models/Boomerang');
 const View = require('./View');
+const addPlayer = require('./db');
 
 // Основной класс игры.
 // Тут будут все настройки, проверки, запуск.
 
 class Game {
-  constructor({ trackLength }) {
+  constructor({ trackLength }, playerName) {
     this.trackLength = trackLength;
     this.boomerang = new Boomerang({ position: 1 });
     this.enemy = new Enemy();
@@ -19,6 +20,8 @@ class Game {
     this.view = new View();
     this.track = [];
     this.regenerateTrack();
+    this.totalScore = 0;
+    this.playerName = playerName;
   }
 
   regenerateTrack() {
@@ -36,8 +39,9 @@ class Game {
       this.boomerang.skin = '';
       this.enemy.skin = '';
       this.track[this.enemy.position] = this.enemy.skin;
+      this.totalScore = this.enemy.score;
       setTimeout(() => {
-        this.hero.die();
+        this.hero.die(this.playerName, this.totalScore);
       });
     }
     if (
@@ -55,9 +59,14 @@ class Game {
       // Let's play!
       this.check();
       this.regenerateTrack();
-      this.view.render(this.track, this.enemy.score);
+      this.view.render(
+        this.track,
+        this.enemy.score,
+        this.totalScore,
+        this.playerName
+      );
       this.enemy.moveLeft();
-    }, 200);
+    }, 100);
   }
 }
 

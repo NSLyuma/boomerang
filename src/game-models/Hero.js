@@ -1,5 +1,6 @@
 // Наш герой.
 const keypress = require('keypress');
+const addPlayer = require('../db');
 
 class Hero {
   constructor({ position }, boomerang, enemy) {
@@ -59,7 +60,8 @@ class Hero {
     }, 50);
   }
 
-  die() {
+  async die(name, score) {
+    await addPlayer(name, score);
     process.exit();
   }
 }
