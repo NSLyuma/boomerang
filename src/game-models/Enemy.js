@@ -27,7 +27,6 @@ class Enemy {
   }
 
   moveLeft() {
-    // Идём влево.
     this.position -= 1;
   }
 

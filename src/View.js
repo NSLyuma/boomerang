@@ -1,4 +1,4 @@
-const playerName = process.argv[2] || 'DEFAULT PLAYER 👽';
+const addPlayer = require('./db');
 
 class View {
   render(track, score, killedEnemies) {
@@ -7,7 +7,7 @@ class View {
     // Тут всё рисуем.
     console.clear();
     console.log(`Player: ${playerName} | score: ${score}`);
-    console.log();
+    console.log('\n\n');
     console.log(track.join(''));
     console.log('\n\n');
     console.log(
