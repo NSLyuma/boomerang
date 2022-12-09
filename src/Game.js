@@ -55,7 +55,7 @@ class Game {
       // Let's play!
       this.check();
       this.regenerateTrack();
-      this.view.render(this.track);
+      this.view.render(this.track, this.enemy.score);
       this.enemy.moveLeft();
     }, 200);
   }
