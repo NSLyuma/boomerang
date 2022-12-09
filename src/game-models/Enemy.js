@@ -33,7 +33,7 @@ class Enemy {
   die() {
     this.score += 1;
     // this.generateSkin();
-    this.position = 30;
+    this.position = 70;
   }
 }
 
