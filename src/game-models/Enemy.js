@@ -3,7 +3,7 @@
 class Enemy {
   constructor() {
     this.generateSkin();
-    this.position = 30;
+    this.position = 70;
     this.score = 0;
   }
 
@@ -31,9 +31,8 @@ class Enemy {
   }
 
   die() {
-    this.score += 1;
-    // this.generateSkin();
     this.position = 70;
+    this.score += 1;
   }
 }
 
