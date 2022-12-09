@@ -5,6 +5,7 @@ class Enemy {
     this.generateSkin();
     this.position = 70;
     this.score = 0;
+    this.killed = [];
   }
 
   generateSkin() {
@@ -30,8 +31,9 @@ class Enemy {
   }
 
   die() {
+    this.killed.push(this.skin);
+    this.position = 70;
     this.score += 1;
-    this.position = 30;
   }
 }
 

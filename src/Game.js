@@ -62,8 +62,7 @@ class Game {
       this.view.render(
         this.track,
         this.enemy.score,
-        this.totalScore,
-        this.playerName
+        this.enemy.killed.join('')
       );
       this.enemy.moveLeft();
     }, 100);
