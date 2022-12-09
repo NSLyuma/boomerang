@@ -44,21 +44,19 @@ class Hero {
 
   attack() {
     let timer = 0;
-    if (this.boomerang.position < 20) {
-      setInterval(() => {
-        if (timer < 10 && this.boomerang.position < this.enemy.position) {
-          this.boomerang.position += 1;
-          timer += 1;
-        } else if (
-          timer >= 10 &&
-          timer < 20 &&
-          this.boomerang.position > this.position + 1
-        ) {
-          this.boomerang.position -= 1;
-          timer += 1;
-        }
-      }, 50);
-    }
+    setInterval(() => {
+      if (timer < 10 && this.boomerang.position < this.enemy.position) {
+        this.boomerang.position += 1;
+        timer += 1;
+      } else if (
+        timer >= 10 &&
+        timer < 20 &&
+        this.boomerang.position > this.position + 1
+      ) {
+        this.boomerang.position -= 1;
+        timer += 1;
+      }
+    }, 50);
   }
 
   die() {
