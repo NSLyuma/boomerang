@@ -4,6 +4,7 @@ class Enemy {
   constructor() {
     this.generateSkin();
     this.position = 30;
+    this.score = 0;
   }
 
   generateSkin() {
@@ -30,6 +31,7 @@ class Enemy {
   }
 
   die() {
+    this.score += 1;
     // this.generateSkin();
     this.position = 30;
   }
