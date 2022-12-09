@@ -1,14 +1,17 @@
-// Сделаем отдельный класс для отображения игры в консоли.
+const addPlayer = require('./db');
 
 class View {
-  render() {
-    const yourTeamName = 'Elbrus';
+  render(track, score, totalScore, playerName) {
+    const yourTeamName = '🚀🚀🚀🚀';
 
     // Тут всё рисуем.
     console.clear();
-    console.log(this.game.track.join(''));
+    console.log(`Player: ${playerName} | score: ${score}`);
     console.log('\n\n');
-    console.log(`Created by "${yourTeamName}" with love`);
+    console.log(track.join(''));
+    console.log('\n\n');
+    console.log(`Total score ${totalScore}`);
+    console.log(`Created by ${yourTeamName} with love`);
   }
 }
 
