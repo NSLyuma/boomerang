@@ -55,9 +55,13 @@ class Game {
       // Let's play!
       this.check();
       this.regenerateTrack();
-      this.view.render(this.track, this.enemy.score);
+      this.view.render(
+        this.track,
+        this.enemy.score,
+        this.enemy.killed.join('')
+      );
       this.enemy.moveLeft();
-    }, 200);
+    }, 100);
   }
 }
 

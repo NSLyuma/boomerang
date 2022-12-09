@@ -1,7 +1,7 @@
 const playerName = process.argv[2] || 'DEFAULT PLAYER 👽';
 
 class View {
-  render(track, score) {
+  render(track, score, killedEnemies) {
     const yourTeamName = '🚀🚀🚀🚀';
 
     // Тут всё рисуем.
@@ -10,6 +10,10 @@ class View {
     console.log();
     console.log(track.join(''));
     console.log('\n\n');
+    console.log(
+      'Как хорошо, что все мы здесь сегодня собрались ',
+      killedEnemies
+    );
     console.log(`Created by ${yourTeamName} with love`);
   }
 }
