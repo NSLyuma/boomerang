@@ -1,7 +1,7 @@
 const addPlayer = require('./db');
 
 class View {
-  render(track, score, killedEnemies) {
+  render(track, score, killedEnemies, playerName) {
     const yourTeamName = '🚀🚀🚀🚀';
 
     // Тут всё рисуем.
