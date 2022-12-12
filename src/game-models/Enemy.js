@@ -6,6 +6,7 @@ class Enemy {
     this.position = 70;
     this.score = 0;
     this.killed = [];
+    this.speed = 100;
   }
 
   generateSkin() {
@@ -34,6 +35,7 @@ class Enemy {
     this.killed.push(this.skin);
     this.position = 70;
     this.score += 1;
+    this.speed = 100 - (Math.floor(this.score / 10) + 1) * 20;
   }
 }
 
