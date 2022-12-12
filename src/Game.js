@@ -78,7 +78,7 @@ class Game {
         this.enemy.speed
       );
       this.enemy.moveLeft();
-    }, this.enemy.speed);
+    }, 80);
   }
 }
 

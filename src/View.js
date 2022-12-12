@@ -11,7 +11,7 @@ class View {
     console.log('\n\n');
     console.log(track.join(''));
     console.log('\n\n');
-    console.log('SPEED', speed);
+    // console.log('SPEED', speed);
     console.log(
       'Как хорошо, что все мы здесь сегодня собрались ',
       killedEnemies
