@@ -1,6 +1,7 @@
 // Наш герой.
 const keypress = require('keypress');
 const addPlayer = require('../db');
+const sound = require('play-sound')((opts = {}));
 
 class Hero {
   constructor({ position }, boomerang, enemy) {
@@ -26,6 +27,9 @@ class Hero {
     this.position += 1;
     this.boomerang.position += 1;
   }
+  //   var audio = new Audio('audio_file.mp3');
+  // 4
+  // 	audio.play();
 
   move() {
     keypress(process.stdin);
@@ -37,6 +41,9 @@ class Hero {
         this.moveLeft();
       }
       if (key.name === 'space') {
+        sound.play(
+          '/home/anastasiya/Рабочий стол/elbrus/boomerang/src/sounds/fire.wav'
+        );
         this.attack();
       }
       if (key.ctrl && key.name === 'c') {
