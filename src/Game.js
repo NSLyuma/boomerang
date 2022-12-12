@@ -74,10 +74,11 @@ class Game {
         this.enemy.score,
         this.enemy.killed.join(''),
         this.playerName,
-        this.hero.lives.join('')
+        this.hero.lives.join(''),
+        this.enemy.speed
       );
       this.enemy.moveLeft();
-    }, 100);
+    }, 80);
   }
 }
 
