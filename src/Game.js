@@ -21,6 +21,7 @@ class Game {
     this.regenerateTrack();
     this.totalScore = 0;
     this.playerName = playerName;
+    this.counter = 0;
   }
 
   regenerateTrack() {
@@ -33,16 +34,20 @@ class Game {
   }
 
   check() {
-    if (this.enemy.position - this.hero.position <= 1) {
-      this.hero.skin = '💀YOU ARE DEAD!💀';
-      this.boomerang.skin = '';
-      this.enemy.skin = '';
-      this.track[this.enemy.position] = this.enemy.skin;
-      this.totalScore = this.enemy.score;
-      setTimeout(() => {
-        this.hero.die(this.playerName, this.totalScore);
-      });
-      return;
+    if (this.enemy.position - this.hero.position === 2) {
+      this.hero.lives[this.counter] = this.hero.brokenLive;
+      this.counter += 1;
+      if (this.counter === 3) {
+        this.enemy.die();
+        this.hero.skin = '💀YOU ARE DEAD!💀';
+        this.boomerang.skin = '';
+        this.enemy.skin = '';
+        this.track[this.enemy.position] = this.enemy.skin;
+        this.totalScore = this.enemy.score;
+        setTimeout(() => {
+          this.hero.die(this.playerName, this.totalScore);
+        });
+      }
     }
     if (
       this.enemy.position <= this.boomerang.position &&
@@ -68,7 +73,8 @@ class Game {
         this.track,
         this.enemy.score,
         this.enemy.killed.join(''),
-        this.playerName
+        this.playerName,
+        this.hero.lives.join('')
       );
       this.enemy.moveLeft();
     }, 100);

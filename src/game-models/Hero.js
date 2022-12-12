@@ -4,6 +4,8 @@ const addPlayer = require('../db');
 
 class Hero {
   constructor({ position }, boomerang, enemy) {
+    this.lives = ['💚', '💚', '💚'];
+    this.brokenLive = '💔';
     this.skins = ['🙂', '🤠', '😎', '😺'];
     this.skin = this.skins[0]; // можете использовать любые emoji '💃'
     this.position = position;

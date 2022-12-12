@@ -1,12 +1,13 @@
 const addPlayer = require('./db');
 
 class View {
-  render(track, score, killedEnemies, playerName) {
+  render(track, score, killedEnemies, playerName, lives) {
     const yourTeamName = '🚀🚀🚀🚀';
 
     // Тут всё рисуем.
     console.clear();
     console.log(`Player: ${playerName} | score: ${score}`);
+    console.log(lives);
     console.log('\n\n');
     console.log(track.join(''));
     console.log('\n\n');
