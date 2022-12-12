@@ -6,7 +6,6 @@ const Hero = require('./game-models/Hero');
 const Enemy = require('./game-models/Enemy');
 const Boomerang = require('./game-models/Boomerang');
 const View = require('./View');
-const addPlayer = require('./db');
 
 // Основной класс игры.
 // Тут будут все настройки, проверки, запуск.
@@ -50,6 +49,11 @@ class Game {
     ) {
       this.enemy.die();
       this.enemy.generateSkin();
+      if (Math.floor(this.enemy.score / 10) < this.hero.skins.length) {
+        this.hero.skin = this.hero.skins[Math.floor(this.enemy.score / 10)];
+      } else {
+        this.hero.skin = this.hero.skins[this.hero.skins.length - 1];
+      }
     }
   }
 
