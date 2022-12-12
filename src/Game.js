@@ -42,6 +42,7 @@ class Game {
       setTimeout(() => {
         this.hero.die(this.playerName, this.totalScore);
       });
+      return;
     }
     if (
       this.enemy.position <= this.boomerang.position &&
